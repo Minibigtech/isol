@@ -1,0 +1,1 @@
+<footer class="footer text-center"> <?php echo date('Y')?> &copy; Powered by <a href="http://www.minibigtech.com/">MINIBIG TECHNOLOGIES</a> </footer>

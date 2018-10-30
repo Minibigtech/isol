@@ -1,0 +1,4 @@
+[01-Mar-2018 16:00:21 Europe/London] PHP Parse error:  syntax error, unexpected '?' in /home/wondershoes/public_html/application/views/checkout.php on line 120
+[01-Mar-2018 16:06:00 Europe/London] PHP Fatal error:  Cannot use isset() on the result of an expression (you can use "null !== expression" instead) in /home/wondershoes/public_html/application/views/checkout.php on line 120
+[04-Aug-2018 17:52:00 Europe/London] PHP Fatal error:  Cannot redeclare Admin_actions::generate_order_report() in /home/mrcpotencia/public_html/isol/application/controllers/Admin_actions.php on line 293
+[13-Aug-2018 13:51:12 Europe/London] PHP Fatal error:  Cannot redeclare Home::terms_condition() in /home/mrcpotencia/public_html/isol/application/controllers/Home.php on line 879
