@@ -27,7 +27,10 @@ class Cart extends CI_Controller {
 		/*$this->load->library('cart');*/
 
 		
-
+		$this->db->select('*')->from('administrator');
+		$this->db->where('admin_id',$this->session->userdata('logged_admin_id'));
+		$sql = $this->db->get();
+		$this->admininfo = $sql->row();
 
 
 		/*
@@ -633,7 +636,10 @@ class Cart extends CI_Controller {
 	public function admin_view_reviews(){
 
 
-
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
 
 
 		$this->db->select('reviews.*,users.u_firstname,products.product_title,products.product_photo')->from('reviews');
@@ -668,7 +674,10 @@ class Cart extends CI_Controller {
 
 	public function admin_review_status(){
 
-
+			if( $this->admininfo->user_type == 'operator' ):
+				redirect(base_url('404'));	
+				exit();
+			endif;
 
 			$review_id = $this->input->post('review_id');
 
@@ -711,6 +720,12 @@ class Cart extends CI_Controller {
 
 
 	public function admin_review_delete(){
+		
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$review_id = $this->input->post('review_id');
 		$this->db->where('review_id',$review_id);
 		$review_delete = $this->db->delete('reviews');

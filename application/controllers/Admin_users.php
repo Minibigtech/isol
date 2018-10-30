@@ -22,6 +22,12 @@ class Admin_users extends CI_Controller {
 		$sql = $this->db->get();
 		$this->admininfo = $sql->row();
 
+		if( $this->admininfo->user_type == 'operator' ):
+
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 	}
 
 	public function index()

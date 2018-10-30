@@ -20,6 +20,11 @@ class Home extends CI_Controller {
 			echo '<script>window.location.href = "'.base_url().'profile"</script>';
 		endif;
 		*/
+
+		$this->db->select('*')->from('administrator');
+		$this->db->where('admin_id',$this->session->userdata('logged_admin_id'));
+		$sql = $this->db->get();
+		$this->admininfo = $sql->row();
 			
 	}
 
@@ -80,6 +85,13 @@ class Home extends CI_Controller {
         echo json_encode($row_set); 
 
 		//$this->load->view('home');
+	}
+
+	public function advance_search()
+	{
+
+		$this->load->view('advance-search');
+
 	}
 
 	public function signin()
@@ -456,7 +468,11 @@ class Home extends CI_Controller {
 
 	public function pages()
 	{	
-	    
+	    if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+		
 		$slug = $this->uri->segment(3);
 		$this->db->select('*')->from('pages')->where('p_slug',$slug);
 		$this->db->limit(1);
@@ -468,6 +484,11 @@ class Home extends CI_Controller {
 
 	public function update_page()
 	{	
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$slug = $this->uri->segment(3);
 		$title = trim( $this->input->post('title') );
 		$heading = trim( $this->input->post('heading') );
@@ -690,6 +711,7 @@ class Home extends CI_Controller {
 		$data['link'] =$this->pagination->create_links(); 
 		$this->load->view('search',$data);
 	}
+	
 	/*Search By Category End*/
 	public function add_to_wishlist(){
 		$product_id = $this->uri->segment(3);
@@ -862,6 +884,12 @@ class Home extends CI_Controller {
 	}	
 
 	public function view_return_exchange(){
+		
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$data['return'] = $this->db->query('select * from return_exchange_form')->result();
 		$this->load->view('admin/view_return_exchange',$data);
 	}

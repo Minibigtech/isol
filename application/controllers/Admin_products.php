@@ -19,6 +19,10 @@ class Admin_products extends CI_Controller {
 		$sql = $this->db->get();
 		$this->admininfo = $sql->row();
 
+
+		
+
+
 	}
 
 	public function generate_ref($ref){
@@ -36,6 +40,12 @@ class Admin_products extends CI_Controller {
 
 	public function product_attributes()
 	{
+		
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$this->db->select('*')->from('product_attributes');
 		$sql = $this->db->get();
 		$data['attributes'] = $sql->result();
@@ -44,12 +54,22 @@ class Admin_products extends CI_Controller {
 
 	public function add_product_attribute()
 	{
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$this->load->view('admin/add-product-attribute');
 	}
 
 
 	public function add_product_attribute_list()
 	{
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$title = trim( $this->input->post('title') );
 		$status = $this->input->post('status');
 
@@ -73,6 +93,11 @@ class Admin_products extends CI_Controller {
 
 	public function edit_product_attribute()
 	{
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$id = $this->uri->segment(3);
 		$this->db->select('*')->from('product_attributes')->where('pa_id',$id);
 		$this->db->limit(1);
@@ -88,6 +113,11 @@ class Admin_products extends CI_Controller {
 
 	public function update_product_attribute()
 	{
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$title = trim( $this->input->post('title') );
 		$status = $this->input->post('status');
 		
@@ -122,6 +152,11 @@ class Admin_products extends CI_Controller {
 
 	public function product_variations()
 	{
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$this->db->select('product_attribute_values.*,product_attributes.pa_title')->from('product_attribute_values');
 		$this->db->join('product_attributes','product_attribute_values.pav_attribute_id = product_attributes.pa_id','INNER');
 		$sql = $this->db->get();
@@ -131,12 +166,22 @@ class Admin_products extends CI_Controller {
 
 	public function add_product_variation()
 	{
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$this->load->view('admin/add-product-variation');
 	}
 
 
 	public function add_product_variation_list()
 	{
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+		
 		$attribute = trim( $this->input->post('attribute') );
 		$title = trim( $this->input->post('title') );
 		$status = $this->input->post('status');
@@ -162,6 +207,11 @@ class Admin_products extends CI_Controller {
 
 	public function edit_product_variation()
 	{
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$id = $this->uri->segment(3);
 		$this->db->select('*')->from('product_attribute_values')->where('pav_id',$id);
 		$this->db->limit(1);
@@ -177,6 +227,11 @@ class Admin_products extends CI_Controller {
 
 	public function update_product_variation()
 	{
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$attribute = trim( $this->input->post('attribute') );
 		$title = trim( $this->input->post('title') );
 		$status = $this->input->post('status');
@@ -619,6 +674,12 @@ class Admin_products extends CI_Controller {
 	}
 
 	public function delete_gallery_photo(){
+		
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$id = $this->input->post('data');
 		$this->db->select('*')->from('product_photos')->where('photo_id',$id);
 		$sql = $this->db->get();
@@ -638,6 +699,10 @@ class Admin_products extends CI_Controller {
 
 	public function delete_product(){
 
+			if( $this->admininfo->user_type == 'operator' ):
+				redirect(base_url('404'));	
+				exit();
+			endif;
 
 		    $product_id = $_POST['data'];
 

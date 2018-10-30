@@ -44,6 +44,14 @@ class Admin_banners extends CI_Controller {
 
 		$this->admininfo = $sql->row();
 
+		//user_type
+		
+
+		if( $this->admininfo->user_type == 'operator' ):
+
+			redirect(base_url('404'));	
+			exit();
+		endif;
 
 
 	}
@@ -55,9 +63,8 @@ class Admin_banners extends CI_Controller {
 
 
 	public function home_slides()
-
 	{
-
+		
 		$this->db->select('*')->from('slider');
 
 		$sql = $this->db->get();

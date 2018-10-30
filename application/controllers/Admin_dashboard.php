@@ -40,6 +40,12 @@ class Admin_dashboard extends CI_Controller {
 
 	public function add_company()
 	{
+		
+		if( $this->admininfo->user_type == 'operator' ):
+
+			redirect(base_url('404'));	
+			exit();
+		endif;
 		/*
 		$this->db->select('COUNT(c_id) AS totalcategories')->from('categories');
 		$sql = $this->db->get();

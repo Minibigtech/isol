@@ -18,6 +18,11 @@ class Checkout extends CI_Controller {
 			echo '<script>window.location.href = "'.base_url().'profile"</script>';
 		endif;
 		*/
+
+		$this->db->select('*')->from('administrator');
+		$this->db->where('admin_id',$this->session->userdata('logged_admin_id'));
+		$sql = $this->db->get();
+		$this->admininfo = $sql->row();
 			
 	}
 	
@@ -390,6 +395,11 @@ class Checkout extends CI_Controller {
 
 	public function admin_view_orders(){
 
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		$this->db->select('*')->from('order_table');
 		$this->db->order_by("order_table.order_id", "desc");	
 		$sql            = $this->db->get();	
@@ -427,6 +437,10 @@ class Checkout extends CI_Controller {
 
 	public function admin_view_billing_details(){
 
+			if( $this->admininfo->user_type == 'operator' ):
+				redirect(base_url('404'));	
+				exit();
+			endif;
 
 		   $order_id  = $this->uri->segment(3);
 		   
@@ -442,6 +456,10 @@ class Checkout extends CI_Controller {
 	}
 	public function admin_view_order_details(){
 
+			if( $this->admininfo->user_type == 'operator' ):
+				redirect(base_url('404'));	
+				exit();
+			endif;
 
 		   $order_id  = $this->uri->segment(3);
 		   
@@ -652,6 +670,12 @@ class Checkout extends CI_Controller {
 	}
 
 	public function my_wishlist(){
+		
+		if( $this->admininfo->user_type == 'operator' ):
+			redirect(base_url('404'));	
+			exit();
+		endif;
+
 		if($this->session->userdata('logged_user_id')):
 
 		   

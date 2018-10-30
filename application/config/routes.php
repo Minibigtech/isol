@@ -266,6 +266,8 @@ $route['admin/logout'] = 'admin_login/logout';
     $route['user/how_to_return']                    = 'home/how_to_return';
     $route['user/how_to_order']                    = 'home/how_to_order';
 	
+    $route['advance-search'] = 'home/advance_search';
+
 		
 
 	
