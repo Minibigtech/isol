@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="advance-search.php" class="btn btn-success advance">Advance</a>
+                                    <a href="<?php echo base_url('advance-search');?>" class="btn btn-success advance">Advance</a>
                                 </div>
                             </div>
                         </div>
