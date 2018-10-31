@@ -424,22 +424,22 @@
                         <form action="<?php ?>">
                           <div class="form-group col-md-6" style="padding: 0;">
                             <label for="email">Enter keywords or item number</label>
-                            <input type="text" class="form-control" placeholder="Enter keywords or item number" name="keyword">
+                            <input type="text" class="form-control" placeholder="Enter keywords or item number" name="keyword" value="<?php echo $this->input->get('keyword')?$this->input->get('keyword'):'';?>">
                           </div>
                           
-                          <div class="form-group col-md-6 pull-right" style="padding-right: 0;">
+                          <div class="form-group col-md-6 pull-right" style="padding-right:0;">
                             <label for="pwd">&nbsp;<!-- Password: --></label>
                             <select class="form-control" name="order">
-                              <option value="1" selected="selected">All words, any order</option>
-                              <option value="2">Any words, any order</option>
-                              <option value="3">Exact words, exact order</option>
-                              <option value="4">Exact words, any order</option>
+                              <option value="1" <?php echo $this->input->get('order')&&$this->input->get('order')==1?'selected':'';?> >All words, any order</option>
+                              <option value="2" <?php echo $this->input->get('order')&&$this->input->get('order')==2?'selected':'';?> >Any words, any order</option>
+                              <option value="3" <?php echo $this->input->get('order')&&$this->input->get('order')==3?'selected':'';?> >Exact words, exact order</option>
+                              <option value="4" <?php echo $this->input->get('order')&&$this->input->get('order')==4?'selected':'';?>>Exact words, any order</option>
                             </select>
                           </div>
-                          <div class="form-group col-md-12 " style="padding: 0;">
+                          <!-- <div class="form-group col-md-12 " style="padding:0;">
                             <label for="pwd">Exclude words from your search</label>
-                            <input type="password" class="form-control"  placeholder="" name="exclude">
-                          </div>
+                            <input type="text" class="form-control"  placeholder="" name="exclude">
+                          </div> -->
                           
                           <button type="submit" class="btn btn-default">Submit</button>
                         </form>
@@ -492,7 +492,7 @@
                       <hr>
                     </div>
                     <?php }?>
-                    <?php echo $link;?>
+                    <?php //echo $link;?>
 
 
                     

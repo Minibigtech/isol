@@ -89,10 +89,74 @@ class Home extends CI_Controller {
 
 	public function advance_search()
 	{
+			
+		
 
-		$this->load->view('advance-search');
+		
+		$data['product'] = [];
+		
+		$cond = '';
 
+		if( $this->input->get('order') ):
+
+			$keywords = $this->input->get('keyword');
+			$order = $this->input->get('order');
+			$exclude = $this->input->get('exclude');
+			$this->db->select('*')->from('products');
+
+			if( $order == 3 || $order == 4 ):
+				$cond.= 'product_title LIKE "%'.$keywords.'%" OR '.'product_reference LIKE "%'.$keywords.'%"';
+				/*
+				$keywords = explode(' ',$keywords);
+				foreach( $keywords as $keyword ):
+			    	$cond.= 'AND product_title LIKE "%'.$keyword.'%"';
+				endforeach;
+				$cond = substr($cond,4);
+				
+				foreach( $keywords as $keyword ):
+			    	$cond.= ' product_reference LIKE "%'.$keyword.'%"';
+				endforeach;
+				
+				$cond = substr($cond,4);
+				*/
+				$this->db->where($cond,NULL,FALSE);
+
+			endif;
+
+			if( $order == 1 || $order == 2 ):
+				$keywords = explode(' ',$keywords);
+				foreach( $keywords as $keyword ):
+			    	$cond.= 'AND product_title LIKE "%'.$keyword.'%"';
+				endforeach;
+				$cond = substr($cond,4);
+				
+				foreach( $keywords as $keyword ):
+			    	$cond.= ' OR product_reference LIKE "%'.$keyword.'%"';
+				endforeach;
+				
+				$cond = substr($cond,4);
+
+			endif;
+
+			/*
+			if( $this->exclude == 3 || $this->exclude == 4 ):
+				$this->db->where('product_title', 'match', 'both');
+				$this->db->like('product_slug', 'match', 'both');
+			endif;
+			*/
+		
+			$sql = $this->db->get();
+			//$this->db->last_query();
+			
+			$data['product'] = $sql->result();
+
+		endif;
+
+
+		$this->load->view('advance-search',$data);
 	}
+
+
 
 	public function signin()
 	{
