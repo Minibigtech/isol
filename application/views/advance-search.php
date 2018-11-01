@@ -421,19 +421,26 @@
 
                        <div class="container"> 
                         <h2>Find Items</h2>
-                        <form action="/action_page.php">
+                        <form action="<?php ?>">
                           <div class="form-group col-md-6" style="padding: 0;">
-                            <label for="email">Enter Keywords or </label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                            <label for="email">Enter keywords or item number</label>
+                            <input type="text" class="form-control" placeholder="Enter keywords or item number" name="keyword" value="<?php echo $this->input->get('keyword')?$this->input->get('keyword'):'';?>">
                           </div>
-                          <div class="form-group col-md-6 pull-right" style="    padding-right: 0;">
-                            <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+                          
+                          <div class="form-group col-md-6 pull-right" style="padding-right:0;">
+                            <label for="pwd">&nbsp;<!-- Password: --></label>
+                            <select class="form-control" name="order">
+                              <option value="1" <?php echo $this->input->get('order')&&$this->input->get('order')==1?'selected':'';?> >All words, any order</option>
+                              <option value="2" <?php echo $this->input->get('order')&&$this->input->get('order')==2?'selected':'';?> >Any words, any order</option>
+                              <option value="3" <?php echo $this->input->get('order')&&$this->input->get('order')==3?'selected':'';?> >Exact words, exact order</option>
+                              <option value="4" <?php echo $this->input->get('order')&&$this->input->get('order')==4?'selected':'';?>>Exact words, any order</option>
+                            </select>
                           </div>
-                         <div class="form-group col-md-12 " style="padding: 0;">
-                            <label for="pwd">Password:</label>
-                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
-                          </div>
+                          <!-- <div class="form-group col-md-12 " style="padding:0;">
+                            <label for="pwd">Exclude words from your search</label>
+                            <input type="text" class="form-control"  placeholder="" name="exclude">
+                          </div> -->
+                          
                           <button type="submit" class="btn btn-default">Submit</button>
                         </form>
                        </div> 
@@ -444,6 +451,50 @@
                     <div class="col-md-12">
                       <hr>
                     </div>
+
+
+                    <?php foreach($product as $key => $product){?>
+                    <div class="col-md-12">
+                      <div class="col-md-3 no-padding">
+                        <div class="product-img">
+                           <a href="<?php echo base_url('preview/'.$product->product_slug.'/'.$product->product_reference);?>" ><?php echo $product->product_photo!=''?'<img src="'.base_url().'assets/images/products/'.$product->product_photo.'" class="img-responsive" alt="">':'<img src="'.base_url().'assets/images/no-image.png" class="img-responsive" alt="">';?>
+                           </a>
+                        </div>
+                      </div>
+                      <div class="col-md-9">
+                        <div class="row">
+                          <div class="product-content clearfix">
+                            <a href="<?php echo base_url('preview/'.$product->product_slug.'/'.$product->product_reference);?>" class="product-name"><?php  echo $product->product_title;?></a>
+                            <h2 class="product-price"> <?php  if($product->get_quote != 'on'){?>
+                                Rs. <?php echo $product->product_price;?>
+                              <?php }?></h2>
+                            <div class="col-md-6">
+                              <p class="product-desc">
+                                    <?php if($product->return_days != 0 ){
+                                        echo 'Return days '.$product->return_days;
+                                    }?><br>
+                                   <?php if($product->shipping != '' ){
+                                        echo 'Shipping '.$product->shipping;
+                                    }?><br>
+                            </div>
+                            <!-- <div class="col-md-6">
+                              <p class="product-desc">Buy It Now <br>
+                                    +$36.30 shipping<br>
+                                    Free Returns<br>
+                                    58+ Sold</p>
+                            </div> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <hr>
+                    </div>
+                    <?php }?>
+                    <?php //echo $link;?>
+
+
                     
                   </div>
                 </div>    
