@@ -20,8 +20,9 @@
       <div class="container">
         <div class="row">
           <div class="how-to-heading">
-              <h2>How to Order</h2>
+              <h2>How to <span>Order</span></h2>
             </div>
+			<br>	<br>
           <div class="col-md-6 col-sm-6 col-xs-12">            
             <div class="how-to-desc">
               <ol class="how-to-list">

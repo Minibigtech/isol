@@ -25,7 +25,78 @@
     <section class="top-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 no-padding">
+			
+			
+			
+			
+			
+			
+			
+		<div class="col-md-2 no-padding sider_menu">	
+			<div class="product-categories clearfix ">
+                        <div class="pcat-title">
+                            <h4>TOP CATEGORIES</h4>
+                        </div>
+			
+<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
+  <li><a href="#">Formal Shoes</a></li>
+  <li><a href="#">MEN WALLETS	</a></li>
+
+   <li><a href="#">Beauty & Health	</a></li>
+  <li class="dropdown-submenu">
+    <a tabindex="-1" href="#">More options</a>
+    <ul class="dropdown-menu">
+      <li><a tabindex="-1" href="#">Second level</a></li>
+      <li class="dropdown-submenu">
+        <a href="#">More..</a>
+        <ul class="dropdown-menu">
+        	<li><a href="#">3rd level</a></li>
+        	<li><a href="#">3rd level</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Second level</a></li>
+      <li><a href="#">Second level</a></li>
+    </ul>
+  </li>
+</ul>
+
+  </div>
+                </div>
+			
+
+			
+			 <!--<div class="col-md-3 no-padding">
+                    <div class="product-categories">
+                        <div class="pcat-title">
+                            <h4>TOP CATEGORIES</h4>
+                        </div>
+                        <div class="pcat-list">
+						<ul class="list-unstyled">
+						<li><a href="http://localhost/isol/user/search_by_category/1">Formal Shoes</a></li>
+						<li><a href="http://localhost/isol/user/search_by_category/2">MEN WALLETS</a>
+						<ul class="dropdown-menu">
+                <li class="kopie"><a href="#">Dropdown Link 4</a></li>
+                <li><a href="#">Dropdown Submenu Link 4.1</a></li>
+                <li><a href="#">Dropdown Submenu Link 4.2</a></li>
+                
+              </ul>
+						
+						
+						</li>
+						<li><a href="http://localhost/isol/user/search_by_category/3">Phones &amp; Accessories</a></li>
+						<li><a href="http://localhost/isol/user/search_by_category/4">Electronics</a></li>
+						<li><a href="http://localhost/isol/user/search_by_category/5">Beauty &amp; Health</a></li>
+						 
+						</ul>
+                        </div>
+                    </div>
+                </div>-->
+			
+			
+			
+			
+			
+                <!--<div class="col-md-3 no-padding">
                     <div class="product-categories">
                         <div class="pcat-title">
                             <h4>TOP CATEGORIES</h4>
@@ -40,7 +111,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <div class="col-md-7 banner-slider">
                     <div id="owl-demo" class="owl-carousel owl-theme"> 
                     <?php $this->db->select('*')->from('slider')->where('slide_status',1);?>
@@ -64,7 +135,7 @@
                             <?php endif;?>
                     </div>
                 </div>
-                <div class="col-md-2 no-padding">
+                <div class="col-md-3 no-padding">
                     <div class="side-content">
                         <h3>Business Information</h3>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
@@ -108,7 +179,7 @@
                 <div class="product-container">
                     <div class="col-md-12 no-padding">
                         <div class="section-title">
-                            <h2>FEATURED PRODUCTS</h2>
+                            <h2><span>FEATURED</span> PRODUCTS</h2>
                             <hr>
                         </div>
                     </div>
@@ -127,6 +198,7 @@
                         <a href="<?php echo base_url('preview/'.$products->product_slug.'/'.$products->product_reference);?>">
                            <?php echo $products->product_photo!=''?'<img src="'.base_url().'assets/images/products/'.$products->product_photo.'" class="img-responsive" alt="">':'<img src="'.base_url().'assets/images/no-image.png" class="img-responsive" alt="">';?>
                         </a>
+						 <div class="text_box clearfix">
                             <h3 class="product-title"><a href="javascript:;"><?php echo $products->product_title;?></a></h3>
                             <h4 class="product-price">
                                <?php  if($products->get_quote != 'on'){?>
@@ -134,7 +206,7 @@
                               <?php }?>
                               </h4>
                             <a href="javascript:;" id="<?php echo $products->product_id; ?>" class="btn card-btn add_cart">ADD TO CART</a>                        
-                      </div> 
+                      </div>     </div> 
                      <?php endforeach;?> 
                         <?php else:?>
                             <h2>Products Not Found</h2>
@@ -152,7 +224,7 @@
                 <div class="product-container">
                     <div class="col-md-12 no-padding">
                         <div class="section-title">
-                            <h2>LATEST PRODUCTS</h2>
+                            <h2><span>LATEST</span> PRODUCTS</h2>
                             <hr>
                         </div>
                     </div>
@@ -167,13 +239,14 @@
                         <a href="<?php echo base_url('preview/'.$products->product_slug.'/'.$products->product_reference);?>">
                            <?php echo $products->product_photo!=''?'<img src="'.base_url().'assets/images/products/'.$products->product_photo.'" class="img-responsive" alt="">':'<img src="'.base_url().'assets/images/no-image.png" class="img-responsive" alt="">';?>
                         </a>
+						 <div class="text_box clearfix">
                             <h3 class="product-title"><a href="javascript:;"><?php echo $products->product_title;?></a></h3>
                             <h4 class="product-price">
                              <?php  if($products->get_quote != 'on'){?>
                                 Rs. <?php echo $products->product_price;?>
                               <?php }?></h4>
                             <a href="javascript:;" id="<?php echo $products->product_id; ?>" class="btn card-btn add_cart">ADD TO CART</a>                       
-                      </div> 
+                      </div>  </div> 
                      <?php endforeach;?> 
                         <?php else:?>
                             <h2>Products Not Found</h2>
@@ -187,7 +260,8 @@
 
     <footer><?php include('footer.php'); ?></footer>
 
-   
+	
+	 
    
     <script>
       // $(document).ready(function(){

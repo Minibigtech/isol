@@ -1,12 +1,12 @@
 <section class="header mob-hide">
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 row">
                     <div class="logo">
                         <a href="<?php echo base_url('');?>"><img src="<?php echo base_url('assets/frontend/')?>img/logo.png"></a>
                     </div>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 row pull-right">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="top-nav">
@@ -29,9 +29,9 @@
                             </div>
                          </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 search_box">
                         <div class="row">
-                            <form method="post" action="<?php echo base_url('user/search')?>">
+                            <!--<form method="post" action="<?php echo base_url('user/search')?>">
                                 <div class="search-bar">
                                       <input type="text" name="query" value="<?php echo (isset($search_data ) && $search_data  != '' )?$search_data:''?>" autocomplete="off" id="search" placeholder="Search for Products" class="search-input">
                                     <div class="group-btn">
@@ -42,14 +42,37 @@
                                             <?php foreach($sql->result() as $val){?>
                                                 <option value="<?php echo $val->cl1_id;?>?>"><?php echo $val->cl1_title;?></option>
                                             <?php }?>
-                                        </select> -->
+                                        </select> 
                                         <button type="submit" class="btn btn-default srch-btn"><span><i class="fa fa-search"></i></span></button>
                                     </div>
                                 </div>
-                            </form>
+                            </form>-->
+							<div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    	<span id="search_concept">Filter by</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="#contains">Contains</a></li>
+                      <li><a href="#its_equal">It's equal</a></li>
+                      <li><a href="#greather_than">Greather than </a></li>
+                      <li><a href="#less_than">Less than  </a></li>
+                    
+                      <li><a href="#all">Anything</a></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="text" class="form-control" name="x" placeholder="Search term...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+							
+							
                         </div>
-                    </div>                    
-                    <div class="col-md-4">
+                    </div>  
+					
+                    <div class="col-md-4 row">
                         <div class="row">
                             <div class="contact-detail">
                                 <div class="col-md-8">
@@ -65,13 +88,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="<?php echo base_url('advance-search');?>" class="btn btn-success advance">Advance</a>
+                                    <a href="advance-search.php" class="btn btn-success advance">Advance</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-1">
+                    <div class="col-md-1 row pull-right">
                         <div class="row">
                             <div class="wishlist-icons">
                                 <ul class="list-unstyled">

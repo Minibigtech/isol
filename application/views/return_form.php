@@ -53,12 +53,14 @@
                 </div>
               <?php endif; ?>
           <div class="how-to-heading">
-              <h2>how to exchange </h2>
+              <h2>how to <span>exchange</span> </h2>
+			  <hr>
             </div>         
-            <div class="col-sm-6 col-sm-offset-3">
-              <div class="form-container">
-                <p>Interlogics.com deals in reliable way to keep the money of customers safe. Currently we are providing service of exchange.</p>
-                <p>You can apply for exchange by filling given form</p>
+            <div class="col-sm-12 ">
+              <div class="form-container clearfix">
+                <p class="exchange_p_first ">Interlogics.com deals in reliable way to keep the money of customers safe. Currently we are providing service of exchange.</p>
+                <p class="exchange_p_sec">You can apply for exchange by filling given form</p>
+				<hr>
                 <form method="POST" action="<?php echo base_url('user/add-return-exchange');?>">
                   <div class="form-group">
                     <label for="usr">Name:</label>
@@ -74,7 +76,7 @@
                     <input type="email" class="form-control"  id="usr" value="<?php echo $email;?>" placeholder="Enter Email Address" name="email" required="">
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group full">
                     <label for="comment">Address:</label>
                     <textarea class="form-control" rows="5" id="comment" placeholder="Enter Address" value="<?php echo $shipping_address;?>" name="address" required=""></textarea>
                   </div>
@@ -104,7 +106,7 @@
                   <?php if(isset($user_id) && !empty($user_id)){?>
                   <input type="submit" class="btn btn-prim" value="Submit"> 
                 <?php }else{?>
-                    <strong style="color: red">Please login to use this feature ! </strong>
+                   <div class="eorr"> <strong style="color: red">Please login to use this feature ! </strong></div>
                 <?php }?>
                 </form>
               </div>

@@ -14,12 +14,18 @@
     
     <?php include('header.php'); ?>
     <?php include('navigation.php'); ?>
+	<div class="how-to-heading">
+              <h2>About <span>Us</span> </h2>
+			  <hr>
+            </div>
+	
+	
     <section class="about-section">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-12">
             <div class="about-heading" style="text-align: left;">
-              <h2>About Us</h2>
+              
             </div>
             <div class="about-desc">
              Lorem Ipsum is slechts een proeftekst uit het drukkerij- en zetterijwezen. Lorem Ipsum is de standaard proeftekst in deze bedrijfstak sinds de 16e eeuw, toen een onbekende drukker een zethaak met letters nam en ze door elkaar husselde om een font-catalogus te maken. Het heeft niet alleen vijf eeuwen overleefd maar is ook, vrijwel onveranderd, overgenomen in elektronische letterzetting. Het is in de jaren '60 populair geworden met de introductie van Letraset vellen met Lorem Ipsum passages en meer recentelijk door desktop publishing software zoals Aldus PageMaker die versies van Lorem Ipsum bevatten
@@ -39,11 +45,10 @@
     <section class="promise-sec">
       <div class="container">
         <div class="row">
-           <div class="col-md-12">
-              <hr>
-            </div>
+          
           <div class="about-heading">
-            <h2>Our Promise</h2>
+            <h2><span>Our </span>Promise</h2>
+			<hr>
           </div>
           <div class="promise-boxes clearfix">
 
@@ -73,16 +78,17 @@
 
 
     <section class="journey-sec">
-      <div class="container">
-        <div class="row">           
+      <div class="">
+        <div class="">           
           <div class="about-heading">
-            <h2>Our Journey</h2>
+            <h2 style="    color: #005dbc;
+    border-bottom: 1px solid #005dbc24;">Our <span>Journey</span></h2>
           </div>
-          <div class="col-md-12 no-padding">
+         
             <div class="journey-img clearfix">
-              <img src="img/journey.jpg" alt="" class="img-responsive">
+              <img src="<?php echo base_url('assets/frontend/');?>img/journey.jpg" alt="" class="img-responsive">
             </div>
-          </div>
+        
         </div>
       </div>
     </section>

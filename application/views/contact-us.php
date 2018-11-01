@@ -23,6 +23,10 @@
 
     <section class="contact-sec">
       <div class="container">
+	  <div class="how-to-heading">
+              <h2>Contact <span>Us</span> </h2>
+			  <hr>
+            </div>
         <div class="row">
           <div class="col-md-8 col-xs-12">
             <div class="contact-form clearfix">              
@@ -61,34 +65,34 @@
               </form>            
             </div>
           </div>
-          <div class="col-md-4 col-xs-12">
+          <div class="col-md-4 col-xs-12 contact-right">
             <div class="col-xs-12 col-md-12">
               <div class="contact-box clearfix">
                 <div class="col-md-4">
-                  <span><i class="fa fa-phone"></i></span>
+                  <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
                 </div>
                 <div class="col-md-8">
-                  <p>Call us <br><br> <span>111-632-632</span></p>
+                  <p>Call us <br> <span>111-632-632</span></p>
                 </div>
               </div>
             </div>
             <div class="col-xs-12 col-md-12">
               <div class="contact-box clearfix">
                 <div class="col-md-4">
-                  <span><i class="fa fa-phone"></i></span>
+                  <span><i class="fa fa-envelope-open" aria-hidden="true"></i></span>
                 </div>
                 <div class="col-md-8">
-                  <p>Email <br><br> <span>talk@interlogics.com</span></p>
+                  <p>Email <br> <span>talk@interlogics.com</span></p>
                 </div>
               </div>
             </div>
             <div class="col-xs-12 col-md-12">
               <div class="contact-box clearfix">
                 <div class="col-md-4">
-                  <span><i class="fa fa-phone"></i></span>
+                  <span><i class="fa fa-whatsapp" aria-hidden="true"></i></span>
                 </div>
                 <div class="col-md-8">
-                  <p>Whatsapp <br><br> <span>111-632-632</span></p>
+                  <p>Whatsapp <br> <span>111-632-632</span></p>
                 </div>
               </div>
             </div>
