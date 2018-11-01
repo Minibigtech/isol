@@ -72,7 +72,7 @@
                         </div>
                     </div>  
 					
-                    <div class="col-md-4 row">
+                    <div class="col-md-4 row phone_sec">
                         <div class="row">
                             <div class="contact-detail">
                                 <div class="col-md-8">
@@ -94,7 +94,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-1 row pull-right">
+                    <div class="col-md-1 row pull-right cart_sec">
                         <div class="row">
                             <div class="wishlist-icons">
                                 <ul class="list-unstyled">
